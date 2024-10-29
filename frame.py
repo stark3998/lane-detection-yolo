@@ -6,6 +6,7 @@ import numpy as np
 import cv2
 from datetime import datetime
 from tqdm import tqdm
+import traceback
 
 
 class FRAME :
@@ -188,7 +189,7 @@ class FRAME :
             n_obs = len(self.obstacles)
             for i in range(n_obs):
                 # Use the new API for KCF and MIL trackers
-                tracker = cv2.TrackerKCF_create()
+                tracker = cv2.legacy.TrackerKCF_create()
                 # Alternatively, for MIL comparison:
                 # tracker = cv2.TrackerMIL()
                 
@@ -286,6 +287,7 @@ class FRAME :
                 except Exception as e:
                     a = 1
                     print(f"\n\rError processing frame {i}: {e}")
+                    print(traceback.format_exc())
 
         print("SKIPPED {:d} BREACHED {:d} RESET {:d} APPENDED {:d} | Total {:d}".\
             format(self.lane.n_gap_skip, self.lane.lane.breached, \
