@@ -3,3 +3,5 @@ videos/*
 model_data/backend.h5
 lane-detect/*
 __pycache__/*
+model_data/yolov3.weights
+model_data/yolov3.weights.h5
