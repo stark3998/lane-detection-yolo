@@ -2,3 +2,4 @@ videos/*
 .DS_Store
 model_data/backend.h5
 lane-detect/*
+__pycache__/*
