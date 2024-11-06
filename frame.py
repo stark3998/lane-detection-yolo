@@ -305,11 +305,11 @@ class FRAME :
 if __name__ == "__main__":
     
     
-    # file_path =  "videos/challenge_video.mp4"         # 145
+    file_path =  "videos/challenge_video.mp4"         # 145
     # file_path =  "videos/challenge_video_edit.mp4"    #145
     # file_path =  "videos/harder_challenge_video.mp4"  
     # file_path =  "videos/nice_road.mp4"               #110 62
-    file_path =  "videos/test_video.mp4"               #118 143
+    # file_path =  "videos/test_video.mp4"               #118 143
     # file_path =  "videos/nh60.mp4"                      # 118 18                   
     video_out = "videos/output_final.mov"
     frame =  FRAME( 

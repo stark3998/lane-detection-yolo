@@ -79,7 +79,7 @@ class WeightReader:
                     conv_layer.set_weights([kernel])
             except ValueError:
                 print("no convolution #" + str(i))     
-        model.save_weights("./model_data/yolov3.h5")
+        model.save_weights("./model_data/yolov3.weights.h5")
     
     def reset(self):
         self.offset = 0
@@ -320,7 +320,10 @@ def correct_yolo_boxes(boxes, image_h, image_w, net_h, net_w, ar_th=0.0004):
     to_del=[]    
     for i in range(len(boxes)):
         
-        
+        print(f"BOX {i} : {boxes[i].xmin} {boxes[i].ymin} {boxes[i].xmax} {boxes[i].ymax}")
+        if boxes[i].xmin < 0 or boxes[i].xmin is None:
+            print("Setting XMin to 0")
+            boxes[i].xmin = 0
         boxes[i].xmin = int((boxes[i].xmin - x_offset) / x_scale * image_w)
         boxes[i].xmax = int((boxes[i].xmax - x_offset) / x_scale * image_w)
         boxes[i].ymin = int((boxes[i].ymin - y_offset) / y_scale * image_h)
